@@ -1,5 +1,3 @@
-// src/drawRedRect.js
-
 export function drawRedRect(svg: any): any {
   const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect')
   rect.setAttribute('x', '0')

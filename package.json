@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint --ext .js,ts --fix src",
     "format": "prettier . --write",
+    "build": "rimraf -rf ./dist ./lib ./esm && rollup --config",
+    "ci": "run-s lint format test build",
     "prepare": "husky install",
     "commit": "git-cz"
   },
@@ -14,7 +17,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.22.10",
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-typescript": "^7.22.5",
     "@commitlint/cli": "^17.7.1",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@types/jest": "^29.5.3",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": ">=6.0.0",
     "commitizen": "^4.3.0",
@@ -28,10 +37,17 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^8.0.3",
+    "jest": "26.0.1",
+    "jest-electron": "^0.1.12",
     "lint-staged": "^13.2.3",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.0.2",
-    "typescript": "^5.1.6",
-    "vitest": "^0.34.2"
+    "rimraf": "^5.0.1",
+    "rollup": "^3.28.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6"
   },
   "lint-staged": {
     "*.{js,mjs,cjs,ts}": [
