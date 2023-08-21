@@ -50,3 +50,11 @@ export function text(
   el.textContent = text.toString()
   return el
 }
+
+export function path(
+  context: SvgSuperContext,
+  attributes: Record<string, string | number | any[]>,
+): SVGElement {
+  const { d } = attributes
+  return shape('path', context, { ...attributes, d: (d as number[] | string[]).flat().join() })
+}
