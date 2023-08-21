@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
+    "test-live": "cross-env DEBUG_MODE=1 jest --coverage",
     "lint": "eslint --ext .js,ts --fix src",
     "format": "prettier . --write",
     "build": "rimraf -rf ./dist ./lib ./esm && rollup --config",
@@ -27,6 +28,7 @@
     "@typescript-eslint/parser": ">=6.0.0",
     "commitizen": "^4.3.0",
     "commitlint-config-cz": "^0.13.3",
+    "cross-env": "^7.0.3",
     "cz-customizable": "^7.0.0",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
