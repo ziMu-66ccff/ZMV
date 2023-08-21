@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "test": "jest --coverage",
     "test-live": "cross-env DEBUG_MODE=1 jest --coverage",
