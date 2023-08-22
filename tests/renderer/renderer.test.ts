@@ -1,5 +1,5 @@
 import { createRenderer } from '@/renderer'
-import { createDiv, mount } from '@/renderer/utils'
+import { createDiv, mount } from '../utils'
 
 describe('createRenderer', () => {
   test('createContext(width, height) returns expected context.', () => {

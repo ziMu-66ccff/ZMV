@@ -1,7 +1,6 @@
 import { createSVGElement, mount } from './utils'
-import type { SvgSuperContext } from './type'
 
-export function createContext(width: number, height: number): SvgSuperContext {
+export function createContext(width: number, height: number) {
   const svg = createSVGElement('svg')
   svg.setAttribute('width', width.toString())
   svg.setAttribute('height', height.toString())
@@ -14,5 +13,3 @@ export function createContext(width: number, height: number): SvgSuperContext {
     g: g,
   }
 }
-
-///

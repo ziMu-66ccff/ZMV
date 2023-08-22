@@ -21,5 +21,6 @@ module.exports = {
   ],
   rules: {
     'object-shorthand': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
 }

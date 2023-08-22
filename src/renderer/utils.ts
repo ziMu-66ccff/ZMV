@@ -1,4 +1,4 @@
-export function createSVGElement(type: keyof SVGElementTagNameMap): SVGElement {
+export function createSVGElement(type: keyof SVGElementTagNameMap) {
   return document.createElementNS('http://www.w3.org/2000/svg', type)
 }
 
