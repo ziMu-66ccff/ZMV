@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 module.exports = {
   types: [
     { value: 'feat', name: '新增：新增功能、页面' },
@@ -31,4 +31,4 @@ module.exports = {
   // 设置选择了那些type，才询问 breaking message
   allowBreakingChanges: ['feat', 'fix', 'ui', 'hotfix', 'update', 'perf'],
   subjectLimit: 100,
-}
+};

@@ -1,14 +1,14 @@
 export function createDiv(): HTMLElement {
-  const div = document.createElement('div')
-  document.body.appendChild(div)
-  return div
+  const div = document.createElement('div');
+  document.body.appendChild(div);
+  return div;
 }
 
 export function mount(
   parentNode: HTMLElement | SVGElement,
   childNode: HTMLElement | SVGElement,
 ): void {
-  parentNode?.appendChild(childNode)
+  parentNode?.appendChild(childNode);
 }
 
 export function getAttributes(
@@ -16,7 +16,7 @@ export function getAttributes(
   attributes: string[],
 ): Record<string, string | null> {
   return attributes.reduce((total, cur) => {
-    ;(total as Record<string, any>)[cur] = node.getAttribute(cur)
-    return total
-  }, {})
+    (total as Record<string, any>)[cur] = node.getAttribute(cur);
+    return total;
+  }, {});
 }
