@@ -108,3 +108,8 @@ export function band({
     bandRange,
   };
 }
+
+// 生成以base为底 x 的对数
+export function log(x: number | string, base: number | string) {
+  return Math.log(Number(x)) / Math.log(Number(base));
+}

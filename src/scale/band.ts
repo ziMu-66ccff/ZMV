@@ -13,8 +13,8 @@ export function createBand({
   const { bandWidth, step, bandRange } = band({ domain, range, padding });
   const ordinal = createOrdinal({ domain, range: bandRange });
   const scale = (x: any) => ordinal(x);
-  scale.bandWidth = bandWidth;
-  scale.step = step;
+  scale.bandWidth = () => bandWidth;
+  scale.step = () => step;
 
   return scale;
 }
