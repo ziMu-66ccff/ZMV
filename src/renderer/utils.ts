@@ -18,6 +18,12 @@ export function applyAttributes(
   }
 }
 
+export function applyTransform(element: SVGElement, transform: string) {
+  const oldTransform = element.getAttribute('transform') ?? ''
+  const prefix = oldTransform ? `${oldTransform} ` : ''
+  element.setAttribute('transform', `${prefix}${transform}`)
+}
+
 export function mount(
   parentNode: HTMLElement | SVGElement,
   childNode: HTMLElement | SVGElement,
