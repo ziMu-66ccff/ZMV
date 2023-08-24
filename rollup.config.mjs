@@ -1,6 +1,6 @@
-import babel from 'rollup-plugin-babel'
-import resolve from 'rollup-plugin-node-resolve'
-import typescript from '@rollup/plugin-typescript'
+import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 
 export default {
   input: 'src/index.ts', // 打包入口
@@ -20,4 +20,4 @@ export default {
     },
   ],
   plugins: [typescript(), resolve(), babel()],
-}
+};
