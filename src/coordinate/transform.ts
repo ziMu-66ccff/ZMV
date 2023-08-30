@@ -3,7 +3,7 @@ export function transform(
   transformer: (arr: [number | string, number | string]) => [number, number],
 ) {
   const subTransformer = ([x, y]: [number | string, number | string]) => transformer([x, y]);
-  subTransformer.type = type;
+  subTransformer.type = () => type;
   return subTransformer;
 }
 

@@ -5,3 +5,11 @@ export function curry(fn: (...args: any[]) => any) {
     return newArgs.length >= arity ? fn(...newArgs) : curried.bind(null, ...newArgs);
   };
 }
+
+export function identity(x: any) {
+  return x;
+}
+
+export function compose(...fns: Array<(...args: any[]) => any>) {
+  return fns.reduce((total, cur) => (x) => cur(total(x)), identity);
+}
