@@ -9,6 +9,6 @@ export function createQuantize({
 }) {
   const n = range.length - 1;
   const step = (Number(d1) - Number(d0)) / range.length;
-  const quantizeDomain = new Array(n).fill(0).map((value, index) => step * (index + 1));
+  const quantizeDomain = new Array(n).fill(0).map((_, index) => step * (index + 1));
   return createThreshold({ domain: quantizeDomain, range });
 }

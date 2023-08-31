@@ -11,7 +11,7 @@
     "paths": {
       "@/*": ["src/*"],
       "~/*": ["./*"],
-      "tests": ["src/tests/*"]
+      "@utils/*": ["src/utils/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
