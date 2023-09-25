@@ -11,7 +11,6 @@ module.exports = {
     project: './tsconfig.json',
   },
   ignorePatterns: [
-    'tests/',
     'node_modules/',
     'dist',
     '.eslintrc.*',
