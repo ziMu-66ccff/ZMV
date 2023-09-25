@@ -11,7 +11,8 @@ module.exports = {
     project: './tsconfig.json',
   },
   ignorePatterns: [
-    'node_modules',
+    'tests/',
+    'node_modules/',
     'dist',
     '.eslintrc.*',
     'prettier.config.*',

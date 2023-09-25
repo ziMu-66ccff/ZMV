@@ -15,7 +15,6 @@
     },
     "resolveJsonModule": true,
     "allowJs": true,
-    "checkJs": true,
     "noEmit": true,
     "sourceMap": true,
     "outDir": ".",
