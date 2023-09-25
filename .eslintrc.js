@@ -17,12 +17,13 @@ module.exports = {
     'prettier.config.*',
     'commitlint.config.*',
     'jest.config.*',
-    'rollup.config.*',
+    'vite.config.*',
   ],
   rules: {
     'object-shorthand': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
+    '@typescript-eslint/consistent-type-assertions': 'off',
   },
 };

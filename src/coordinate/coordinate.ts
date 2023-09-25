@@ -18,6 +18,10 @@ export function createCoordinate({
   const types = transforms.map((d) => d.type());
   output.isPolar = () => types.includes('polar');
   output.isTranspose = () => types.reduce((is, type) => is || type === 'transpose', false);
-  output.center = () => [Number(x) + Number(width) / 2, Number(y) + Number(height) / 2];
+  output.center = () =>
+    [Number(x) + Number(width) / 2, Number(y) + Number(height) / 2] as [
+      number | string,
+      number | string,
+    ];
   return output;
 }

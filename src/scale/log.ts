@@ -1,5 +1,5 @@
 import { createLinear } from '.';
-import { log, nice, ticks } from './utils';
+import { log, nice, ticks } from '@utils/index';
 
 export function createLog({
   domain,

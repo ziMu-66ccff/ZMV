@@ -1,5 +1,5 @@
-import { applyAttributes, createSVGElement, mount } from './utils';
-import type { SvgSuperContext } from './type';
+import { applyAttributes, createSVGElement, mount } from '@utils/dom';
+import type { SvgSuperContext } from '@/types';
 
 export function shape(
   type: keyof SVGElementTagNameMap,

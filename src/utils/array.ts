@@ -1,5 +1,17 @@
-export function normalize(value: string | number, start: string | number, stop: string | number) {
-  return (Number(value) - Number(start)) / (Number(stop) - Number(start));
+import { identity, round } from '.';
+
+export function group(arr: any[], key: (d: any) => any = (d) => d) {
+  const keyGroups = new Map();
+  for (const item of arr) {
+    const k = key(item);
+    const g = keyGroups.get(k);
+    if (g) {
+      g.push(item);
+    } else {
+      keyGroups.set(k, [item]);
+    }
+  }
+  return keyGroups;
 }
 
 export function ticks(min: number | string, max: number | string, count: number | string) {
@@ -57,59 +69,30 @@ export function tickStep(min: number | string, max: number | string, count: numb
   return step1;
 }
 
-export function nice(
-  domain: [number | string, number | string],
-  interval: {
-    ceil: (n: number | string) => number;
-    floor: (n: number | string) => number;
-  },
-) {
-  const [min, max] = domain;
-  return [interval.floor(min), interval.ceil(max)];
+export function lastOf(arr: any[]) {
+  return arr[arr.length - 1];
 }
 
-export function floor(n: number | string, base: number | string) {
-  return Number(base) * Math.floor(Number(n) / Number(base));
+export function firstOf(arr: any[]) {
+  return arr[0];
 }
 
-export function ceil(n: number | string, base: number | string) {
-  return Number(base) * Math.ceil(Number(n) / Number(base));
+export function bisect(array: any[], x: any, i = 0, j = array.length, accessor = identity) {
+  while (i < j) {
+    const mid = (i + j) >>> 1;
+    if (accessor(array[mid]) < x) {
+      i = mid + 1;
+    } else {
+      j = mid;
+    }
+  }
+  return i;
 }
 
-// 简单解决 js 的精读问题：0.1 + 0.2 !== 0.3
-export function round(n: number | string) {
-  return Math.round(Number(n) * 1e12) / 1e12;
+export function min(arr: any[], accessor: (arr: any) => any) {
+  return Math.min(...arr.map(accessor));
 }
 
-export function equal(a: any, b: any) {
-  return JSON.stringify(a) === JSON.stringify(b);
-}
-
-export function band({
-  domain,
-  range,
-  padding,
-}: {
-  domain: any[];
-  range: [number | string, number | string];
-  padding: number | string;
-}) {
-  const n = domain.length;
-  const [r0, r1] = range;
-  // 这个padding是基于step的比例
-  const step = (Number(r1) - Number(r0)) / (n + Number(padding));
-  const bandWidth = step * (1 - Number(padding));
-  const interval = step - bandWidth;
-  const bandRange = new Array(n).fill(0).map((value, i) => Number(r0) + interval + i * step);
-
-  return {
-    bandWidth,
-    step,
-    bandRange,
-  };
-}
-
-// 生成以base为底 x 的对数
-export function log(x: number | string, base: number | string) {
-  return Math.log(Number(x)) / Math.log(Number(base));
+export function max(arr: any[], accessor: (arr: any) => any) {
+  return Math.max(...arr.map(accessor));
 }

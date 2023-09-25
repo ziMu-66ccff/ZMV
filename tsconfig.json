@@ -39,13 +39,5 @@
     "skipLibCheck": true
   },
   "include": ["src/**/*.ts", "tests/**/*.ts", "*.d.ts"],
-  "exclude": [
-    "node_modules",
-    "dist",
-    ".eslintrc.*",
-    "prettier.config.*",
-    "commitlint.config.*",
-    "jest.config.*",
-    "rollup.config.*"
-  ]
+  "exclude": ["node_modules"]
 }

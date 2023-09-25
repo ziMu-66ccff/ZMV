@@ -1,5 +1,5 @@
-import type { SvgSuperContext } from './type';
-import { applyTransform, createSVGElement, mount } from './utils';
+import type { SvgSuperContext } from '@/types';
+import { applyTransform, createSVGElement, mount } from '@utils/dom';
 
 export function transform(
   type: 'translate' | 'scale' | 'rotate',

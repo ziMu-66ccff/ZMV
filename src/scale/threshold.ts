@@ -6,8 +6,10 @@ export function createThreshold({
   range: string[];
 }) {
   const n = Math.min(range.length - 1, domain.length);
-  return (x: number | string) => {
+  const scale = (x: number | string) => {
     const index = domain.findIndex((value) => Number(x) < Number(value));
     return range[index === -1 ? n : index];
   };
+  scale.thresholds = () => domain;
+  return scale;
 }

@@ -1,5 +1,5 @@
 import { interpolateNumber } from './interpolate';
-import { ceil, floor, nice, normalize, tickStep, ticks } from './utils';
+import { ceil, floor, nice, normalize, tickStep, ticks } from '@utils/index';
 
 export function createLinear({
   domain: [d0, d1],

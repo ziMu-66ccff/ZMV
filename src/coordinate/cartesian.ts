@@ -1,4 +1,4 @@
-import { curry } from '@/utils/helper';
+import { curry } from '../utils/helper';
 import { scale, translate } from './transform';
 
 function coordinate(

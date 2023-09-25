@@ -1,4 +1,4 @@
-import { createSVGElement, mount } from './utils';
+import { createSVGElement, mount } from '@utils/index';
 
 export function createContext(width: number, height: number) {
   const svg = createSVGElement('svg');
