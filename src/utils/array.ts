@@ -77,6 +77,10 @@ export function firstOf(arr: any[]) {
   return arr[0];
 }
 
+export function indexOf(array: any[]) {
+  return array.map((_, i) => i);
+}
+
 export function bisect(array: any[], x: any, i = 0, j = array.length, accessor = identity) {
   while (i < j) {
     const mid = (i + j) >>> 1;

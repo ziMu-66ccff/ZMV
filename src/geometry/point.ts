@@ -2,8 +2,13 @@ import type { Coordinate, Scale, Renderer } from '@/types';
 import { circle } from './shape';
 import { channelStyles } from './style';
 import { createChannels, createChannel } from './channel';
+import { createGeometry } from './geometry';
 
-export function point(
+const channels = createChannels({
+  r: createChannel({ name: 'r' }),
+});
+
+function render(
   renderer: Renderer,
   I: number[],
   scales: Record<string, Scale>,
@@ -29,4 +34,4 @@ export function point(
     });
   });
 }
-point.channels = () => createChannels({ r: createChannel({ name: 'r' }) });
+export const point = createGeometry(channels, render);

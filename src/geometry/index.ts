@@ -1,8 +1,9 @@
-export * from './point';
-export * from './text';
-export * from './link';
-export * from './line';
-export * from './area';
-export * from './rect';
-export * from './cell';
-export * from './interval';
+export { interval } from './interval';
+export { cell } from './cell';
+export { rect } from './rect';
+export { line } from './line';
+export { point } from './point';
+export { area } from './area';
+export { text } from './text';
+export { link } from './link';
+export { path } from './path';

@@ -1,3 +1,4 @@
-import type { createChannels } from '@/geometry/channel';
+import type { createChannel, createChannels } from '@/geometry/channel';
 
-export type channels = ReturnType<typeof createChannels>;
+export type Channels = ReturnType<typeof createChannels>;
+export type Channel = ReturnType<typeof createChannel>;

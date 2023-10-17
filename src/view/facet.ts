@@ -1,19 +1,22 @@
-import type { Area, ViewTree } from '@/types/view';
+import type { ZMVNode } from '@/types/plot';
+import type { Area } from '@/types/view';
 import { group } from '@/utils';
 
 export function computeFacetView(
   view: Area,
   {
-    data,
+    data = [],
     encodings = {},
     padding = 0,
     paddingLeft = 45,
     paddingRight = 45,
     paddingTop = 60,
     paddingBottom = 45,
-  }: ViewTree,
+  }: ZMVNode,
 ): Area[] {
   const { x, y } = encodings;
+  if (typeof x === 'function' || typeof y === 'function')
+    throw new Error('the channels named (x or y) must be string in facet node ');
   const rows = y ? Array.from(group(data, (d) => d[y]).keys()) : [undefined];
   const cols = x ? Array.from(group(data, (d) => d[x]).keys()) : [undefined];
   const m = rows.length;

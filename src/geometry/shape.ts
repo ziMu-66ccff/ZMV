@@ -46,7 +46,7 @@ export function text(
   renderer.translate(px, py);
   renderer.rotate(rotate);
   const textElement = renderer.text({
-    text: text.toString(),
+    text: text,
     x: 0,
     y: 0,
     fontSize,
@@ -90,6 +90,14 @@ export function line(
   const points = I.map((i) => coordinate([X[i], Y[i]]));
   const d = linePath(points);
   return renderer.path({ d, fill, ...styles });
+}
+
+export function path(
+  renderer: Renderer,
+  coordinate: Coordinate,
+  attributes: Record<string, string | number | any[]>,
+) {
+  return renderer.path(attributes);
 }
 
 export function area(

@@ -1,20 +1,23 @@
-import type { Area, ViewTree } from '@/types/view';
-import { computeFacetView, computeFlexViews, computeLayerViews } from '.';
+import type { Area } from '@/types/view';
+import type { ZMVNode } from '@/types/plot';
 import { descendants, group } from '@/utils';
+import { computeLayerViews } from './layer';
+import { computeFacetView } from './facet';
+import { computeFlexViews } from './flex';
 
 export function createViews(
-  root: ViewTree,
-  computes: Record<string, (view: Area, node: ViewTree) => Area[]> = {
+  root: ZMVNode,
+  computes: Record<string, (view: Area, node: ZMVNode) => Area[]> = {
     layer: computeLayerViews,
     row: computeFlexViews,
     col: computeFlexViews,
     facet: computeFacetView,
   },
-): Array<[Area, ViewTree[]]> {
-  const nodes: ViewTree[] = descendants(root);
+): Array<[Area, ZMVNode[]]> {
+  const nodes: ZMVNode[] = descendants(root);
   const { width = 640, height = 480, x = 0, y = 0 } = root;
   const rootView = { width, height, x, y };
-  const nodeViews = new Map<ViewTree, Area>([[root, rootView]]);
+  const nodeViews = new Map<ZMVNode, Area>([[root, rootView]]);
 
   for (const node of nodes) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -38,7 +41,7 @@ export function createViews(
   }
 
   const key = (d: Area) => `${d.x}-${d.y}-${d.width}-${d.height}`;
-  const keyViews: Map<string, Array<[ViewTree, Area]>> = group(
+  const keyViews: Map<string, Array<[ZMVNode, Area]>> = group(
     Array.from(nodeViews.entries()),
     ([_, view]) => key(view),
   );

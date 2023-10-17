@@ -13,8 +13,9 @@ export function createCoordinate({
   height?: number | string;
   transforms?: any[];
 }) {
-  const transforms = coordinates.map((coordinates) => coordinates({ x, y, width, height })).flat();
+  const transforms = coordinates.flatMap((coordinates) => coordinates({ x, y, width, height }));
   const output = (point: any) => compose(...transforms)(point);
+  // TODO
   const types = transforms.map((d) => d.type());
   output.isPolar = () => types.includes('polar');
   output.isTranspose = () => types.reduce((is, type) => is || type === 'transpose', false);

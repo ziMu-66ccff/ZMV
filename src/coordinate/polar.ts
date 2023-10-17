@@ -2,12 +2,14 @@ import { curry } from '@/utils/helper';
 import { polar as polarT, reflectY, scale, translate } from './transform';
 
 function coordinate(
-  transformOptions: {
-    innerRadius?: number | string;
-    outerRadius: number | string;
-    startAngle?: number | string;
-    endAngle?: number | string;
-  },
+  transformOptions:
+    | {
+        innerRadius?: number | string;
+        outerRadius?: number | string;
+        startAngle?: number | string;
+        endAngle?: number | string;
+      }
+    | undefined,
   canvasOptions: {
     x?: number | string;
     y?: number | string;
@@ -16,7 +18,12 @@ function coordinate(
   },
 ) {
   const { width, height } = canvasOptions;
-  const { innerRadius = 0, outerRadius, startAngle = 0, endAngle = 2 * Math.PI } = transformOptions;
+  const {
+    innerRadius = 0,
+    outerRadius = 1,
+    startAngle = -Math.PI / 2,
+    endAngle = (Math.PI / 2) * 3,
+  } = transformOptions ?? {};
 
   const aspect = Number(width) / Number(height);
   const sx = aspect > 1 ? 1 / aspect : 1;

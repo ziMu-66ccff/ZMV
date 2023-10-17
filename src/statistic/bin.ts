@@ -13,11 +13,11 @@ function bin(values: Array<number | string>, count: number | string = 10, access
 
 export function createBinX({
   count = 10,
-  channel,
+  channel = 'fill',
   aggreate = (value) => value.length,
 }: {
   count?: number | string;
-  channel: string;
+  channel?: string;
   aggreate?: (arr: any) => any;
 }) {
   return ({

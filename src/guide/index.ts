@@ -1,8 +1,5 @@
-export * from './axisX';
-export * from './axisY';
-export * from './axis';
-export * from './grid';
-export * from './label';
-export * from './ticks';
-export * from './legendSwatches';
-export * from './legendRamp';
+export { axisX } from './axisX';
+export { axisY } from './axisY';
+export { createAxis } from './axis';
+export { legendSwatches } from './legendSwatches';
+export { legendRamp } from './legendRamp';

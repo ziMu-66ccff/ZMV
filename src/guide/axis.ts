@@ -1,6 +1,6 @@
 import type { Coordinate, Renderer, Scale } from '@/types';
 import { identity, lastOf } from '@/utils';
-import type { createBand, createLinear } from '../';
+import type { createBand, createLinear } from '../scale';
 import type { AxisComponents, TransformType } from '@/types/guide';
 
 export function createAxis(components: AxisComponents) {
@@ -17,7 +17,7 @@ export function createAxis(components: AxisComponents) {
       grid = false,
       tick = true,
     }: {
-      domain: Array<number | string>;
+      domain?: Array<number | string>;
       label?: string;
       tickCount?: number | string;
       formatter?: (x: any) => any;
@@ -26,11 +26,11 @@ export function createAxis(components: AxisComponents) {
       tick?: boolean;
     },
   ) => {
-    if (domain.length === 0) return;
+    if (domain && domain.length === 0) return;
     const fontSize = 10;
     const isOridinal = !!(scale as ReturnType<typeof createBand>).bandWidth;
     const isQuantitative = !!(scale as ReturnType<typeof createLinear>).ticks;
-    const offset = isOridinal ? Number((scale as any).bandWidth) / 2 : 0;
+    const offset = isOridinal ? Number((scale as any).bandWidth()) / 2 : 0;
     const values = isQuantitative ? (scale as any).ticks(tickCount) : domain;
 
     const center = coordinate.center();
@@ -44,6 +44,7 @@ export function createAxis(components: AxisComponents) {
       const text = formatter(d);
       return { x, y, text };
     });
+
     const labelTick = (() => {
       if (!isOridinal) return lastOf(ticks);
       const value = lastOf(values);

@@ -1,8 +1,8 @@
 import type { createBand } from '@/scale';
-import type { Coordinate, channels, Scale, Renderer } from '@/types';
+import type { Coordinate, Channels, Scale, Renderer } from '@/types';
 
 export function createGeometry(
-  channels: channels,
+  channels: Channels,
   render: (
     renderer: Renderer,
     I: number[],

@@ -3,3 +3,4 @@ export * from './geometry';
 export * from './renderer';
 export * from './scale';
 export * from './guide';
+export * from './plot';

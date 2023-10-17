@@ -1,8 +1,4 @@
-export interface ViewTree {
-  type?: string;
-  children?: ViewTree[];
-  [key: string]: any;
-}
+import type { ZMVNode } from './plot';
 
 export interface Area {
   x: number | string;
@@ -12,4 +8,4 @@ export interface Area {
   [key: string]: any;
 }
 
-export type ViewsComputer = (view: Area, node: ViewTree) => Area[];
+export type ViewsComputer = (view: Area, node: ZMVNode) => Area[];

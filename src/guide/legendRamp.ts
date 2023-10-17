@@ -1,7 +1,7 @@
 import type { Coordinate, Renderer, Scale } from '@/types';
 import { firstOf, identity, lastOf } from '@/utils';
-import { createLinear } from '..';
-import { ticksBottom } from '.';
+import { createLinear } from '../scale';
+import { ticksBottom } from './ticks';
 
 export function legendRamp(
   renderer: Renderer,

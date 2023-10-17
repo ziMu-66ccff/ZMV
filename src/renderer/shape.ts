@@ -35,7 +35,8 @@ export function circle(context: SvgSuperContext, attributes: Record<string, stri
 export function text(context: SvgSuperContext, attributes: Record<string, string | number>) {
   const { text, ...rest } = attributes;
   const el = shape('text', context, rest);
-  el.textContent = text.toString();
+  el.textContent = text !== undefined ? text.toString() : '';
+  // el.textContent = text.toString();
   return el;
 }
 

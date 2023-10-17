@@ -2,7 +2,8 @@ export function curry(fn: (...args: any[]) => any) {
   const arity = fn.length;
   return function curried(...args: any[]): any {
     const newArgs = args.length === 0 ? [undefined] : args;
-    return newArgs.length >= arity ? fn(...newArgs) : curried.bind(null, ...newArgs);
+    if (newArgs.length >= arity) return fn(...newArgs);
+    return curried.bind(null, ...newArgs);
   };
 }
 
@@ -45,4 +46,24 @@ export function ceil(n: number | string, base: number | string) {
 // 生成以base为底 x 的对数
 export function log(x: number | string, base: number | string) {
   return Math.log(Number(x)) / Math.log(Number(base));
+}
+
+export function assignDefined(target: Record<string, any>, source: Record<string, any>) {
+  for (const [key, value] of Object.entries(source)) {
+    if (value !== undefined) target[key] = value;
+  }
+}
+
+export function map(object: Record<string, any>, transform: (...args: any[]) => any = identity) {
+  return Object.entries(object).reduce(
+    (obj, [key, value]) => {
+      obj[key] = transform(value, key);
+      return obj;
+    },
+    {} as Record<string, any>,
+  );
+}
+
+export function defined(d: any) {
+  return d !== undefined && !Number.isNaN(d);
 }

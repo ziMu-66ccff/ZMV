@@ -21,6 +21,7 @@ function renderer(
 ) {
   const defaults = { rotate: 0, fontSize: 14, fontWeight: 'normal' };
   const { x: X, y: Y, text: T, rotate: R = [], fontSize: FS = [], fontWeight: FW = [] } = values;
+
   return Array.from(I, (i) => {
     return textShape(renderer, coordinate, {
       ...directStyles,

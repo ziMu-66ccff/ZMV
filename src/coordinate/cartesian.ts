@@ -4,10 +4,10 @@ import { scale, translate } from './transform';
 function coordinate(
   transformOptions:
     | {
-        innerRadius: number | string;
-        outerRadius: number | string;
-        startAngle: number | string;
-        endAngle: number | string;
+        innerRadius?: number | string;
+        outerRadius?: number | string;
+        startAngle?: number | string;
+        endAngle?: number | string;
       }
     | undefined,
   canvasOptions: {

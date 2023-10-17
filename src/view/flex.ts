@@ -1,6 +1,7 @@
-import type { Area, ViewTree } from '@/types/view';
+import type { ZMVNode } from '@/types/plot';
+import type { Area } from '@/types/view';
 
-export function computeFlexViews(view: Area, node: ViewTree): Area[] {
+export function computeFlexViews(view: Area, node: ZMVNode): Area[] {
   const { children = [], padding = 40, type, flex = children.map(() => 1) } = node;
   const [mainStart, mainSize, crossStart, crossSize] =
     type === 'col' ? ['y', 'height', 'x', 'width'] : ['x', 'width', 'y', 'height'];
